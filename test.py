@@ -8,17 +8,31 @@ class TestPenceEquivalent(unittest.TestCase):
     # test function to test equality of two value
     def test_positive(self):
 
-        user_input = ["6", "75", "167p", "4p", "1.97", "£1.33", "£2", "£20", "£1.97p", "£1p", "£1.p", "001.61p", "6.235p", "£1.256532677p"]
-        ans = [6, 75, 167, 4, 197, 133, 200, 2000, 197, 100, 100, 161, 624, 126]
+        user_input = {
+            "6" : 6,
+            "75": 75,
+            "167p": 167, 
+            "4p": 4, 
+            "1.97": 197, 
+            "£1.33": 133, 
+            "£2": 200, 
+            "£20": 2000, 
+            "£1.97p": 197, 
+            "£1p": 100, 
+            "£1.p": 100, 
+            "001.61p": 161, 
+            "6.235p": 624, 
+            "£1.256532677p": 126,
+        }
 
         # error message in case if test case got failed
         message = "First value and second value are not equal!"
 
-        for idx, val in enumerate (user_input):
+        for key in user_input:
 
-            input_amount = InputPreprocess(val)
+            input_amount = InputPreprocess(key)
 
-            self.assertEqual(input_amount, ans[idx], message)
+            self.assertEqual(input_amount, user_input[key], message)
        
     def test_negative(self):
 
