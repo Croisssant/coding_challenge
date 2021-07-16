@@ -7,6 +7,7 @@ from function import InputPreprocess
 print("===========================\n")
 print("Pound to Pence Converter\n")
 print("===========================\n")
+
 input_flag = 1
 
 while input_flag == 1:
@@ -15,6 +16,7 @@ while input_flag == 1:
 
     input_amount = InputPreprocess(user_input)    
 
+    # Throw error if returned input_amount is not int
     if isinstance(input_amount, int):
         input_flag = 0
 

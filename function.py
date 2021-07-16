@@ -5,7 +5,7 @@ def InputPreprocess(user_input):
         user_input = user_input.replace("p", "")
     
         try:
-
+            # For inputs with decimal points
             if user_input.find(".") != -1:
                 input_amount = int(round(float(user_input), 2) * 100)
 
@@ -21,16 +21,19 @@ def InputPreprocess(user_input):
         user_input = user_input.replace("p", "")
     
         try:
-
+            # For inputs with decimal points
             if user_input.find(".") != -1:
                 user_input = user_input.replace("£", "")
                 input_amount = int(round(float(user_input), 2) * 100)
-
-            else:
-
+            
+            # For inputs with NO decimal points
+            else:            
+                # If "£" is found multiply by 100
                 if user_input.find("£") != -1:
                     user_input = user_input.replace("£", "")
                     input_amount = int(user_input) * 100
+                
+                # Retain original value if no "£"    
                 else:
                     input_amount = int(user_input)
 

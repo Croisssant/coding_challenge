@@ -1,13 +1,14 @@
 import unittest
 from function import InputPreprocess
 
-# unit test case
+# Unit Test Case
   
 class TestPenceEquivalent(unittest.TestCase):
     
-    # test function to test equality of two value
+    # Test function to test equality of two value
     def test_positive(self):
 
+        # Test input dictionary "Key" represents User Input && "Value" represents Correct Answer
         user_input = {
             "6" : 6,
             "75": 75,
@@ -25,7 +26,7 @@ class TestPenceEquivalent(unittest.TestCase):
             "£1.256532677p": 126,
         }
 
-        # error message in case if test case got failed
+        # Error message in case if test case got failed
         message = "First value and second value are not equal!"
 
         for key in user_input:
@@ -33,13 +34,14 @@ class TestPenceEquivalent(unittest.TestCase):
             input_amount = InputPreprocess(key)
 
             self.assertEqual(input_amount, user_input[key], message)
-       
+
+    # Test function for Error Inputs   
     def test_negative(self):
 
         user_input = ["", "1x", "£1x.0p", "£p", "asdasda"]
         ans = "This is an invalid input"
 
-        # error message in case if test case got failed
+        # Error message in case if test case got failed
         message = "First value and second value are not equal!"
 
         for idx, val in enumerate (user_input):
@@ -51,6 +53,3 @@ class TestPenceEquivalent(unittest.TestCase):
   
 if __name__ == '__main__':
     unittest.main()
-
-
-
