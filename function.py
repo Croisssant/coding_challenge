@@ -1,4 +1,4 @@
-def InputPreprocess(user_input, input_flag):
+def InputPreprocess(user_input):
      # All inputs with only "p" goes here
     if (user_input.find("£") == -1 and user_input.find("p") != -1):
 
@@ -11,11 +11,9 @@ def InputPreprocess(user_input, input_flag):
 
             else:
                 input_amount = int(user_input)
-            
-            input_flag = 0
 
         except ValueError:
-            print("\n ===== This is an invalid input ===== \n")
+            input_amount = "This is an invalid input"
 
     # All inputs with "£" or ("£" and "p") goes here
     else:
@@ -35,10 +33,8 @@ def InputPreprocess(user_input, input_flag):
                     input_amount = int(user_input) * 100
                 else:
                     input_amount = int(user_input)
-            
-            input_flag = 0
 
         except ValueError:
-            print("\n ===== This is an invalid input ===== \n")
+            input_amount = "This is an invalid input"
     
-    return input_amount, input_flag
+    return input_amount

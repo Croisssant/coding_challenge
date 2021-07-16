@@ -12,7 +12,16 @@ input_flag = 1
 while input_flag == 1:
     print("Please insert the amount")
     user_input = input(">>> ")
-    input_amount, input_flag = InputPreprocess(user_input, input_flag)        
+
+    input_amount = InputPreprocess(user_input)    
+
+    if isinstance(input_amount, int):
+        input_flag = 0
+
+    else:
+        print("\n === Invalid Input === \n")
+        input_flag = 1
+
 
 print("\nTotal in pence: ", input_amount)
 
